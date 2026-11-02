@@ -1,0 +1,23 @@
+[
+  {
+    "ActivityID": "A001",
+    "CustomerID": "C001",
+    "Type": "Call",
+    "Details": {
+      "DurationMinutes": 15,
+      "Outcome": "Follow-up required"
+    }
+  },
+  {
+    "ActivityID": "A002",
+    "CustomerID": "C002",
+    "Type": "Email",
+    "Details": {
+      "Subject": "Renewal proposal"
+    },
+    "Tags": [
+      "Renewal",
+      "Priority"
+    ]
+  }
+]

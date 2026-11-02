@@ -1,0 +1,7 @@
+OpportunityID,CustomerID,Stage,EstimatedValue
+O001,C001,Won,20000
+O002,C002,Lost,15000
+O003,C003,Proposal,30000
+O004,C004,Negotiation,25000
+O005,C001,Won,10000
+O006,C002,Lost,5000
