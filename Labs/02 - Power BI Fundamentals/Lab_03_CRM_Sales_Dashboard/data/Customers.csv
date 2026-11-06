@@ -1,0 +1,25 @@
+﻿CustomerID,CustomerName,Region,Segment
+C001,Customer 001,South,SMB
+C002,Customer 002,East,Mid-Market
+C003,Customer 003,West,Enterprise
+C004,Customer 004,North,SMB
+C005,Customer 005,South,Mid-Market
+C006,Customer 006,East,Enterprise
+C007,Customer 007,West,SMB
+C008,Customer 008,North,Mid-Market
+C009,Customer 009,South,Enterprise
+C010,Customer 010,East,SMB
+C011,Customer 011,West,Mid-Market
+C012,Customer 012,North,Enterprise
+C013,Customer 013,South,SMB
+C014,Customer 014,East,Mid-Market
+C015,Customer 015,West,Enterprise
+C016,Customer 016,North,SMB
+C017,Customer 017,South,Mid-Market
+C018,Customer 018,East,Enterprise
+C019,Customer 019,West,SMB
+C020,Customer 020,North,Mid-Market
+C021,Customer 021,South,Enterprise
+C022,Customer 022,East,SMB
+C023,Customer 023,West,Mid-Market
+C024,Customer 024,North,Enterprise

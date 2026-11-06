@@ -2,6 +2,8 @@
 
 End-to-end curriculum for building a **CRM Sales & Revenue Analytics Platform** on Microsoft Fabric and Power BI—from data analytics fundamentals through ingestion, modeling, reporting, security, AI, governance, and operations.
 
+**Learners:** all hands-on guides and sample data are under **[Labs/](./Labs/README.md)** (start with [Getting-Started.md](./Labs/Getting-Started.md)).
+
 ---
 
 ## Module 1 — Introduction to Data Analytics & Business Intelligence
@@ -17,15 +19,13 @@ End-to-end curriculum for building a **CRM Sales & Revenue Analytics Platform** 
 - Modern analytics platform overview
 - CRM analytics use-case walkthrough
 
-**Hands-on labs** ([Module 1 folder](./01%20-%20Introduction%20to%20Data%20Analytics%20%26%20Business%20Intelligence/))
+**Hands-on labs** — [Labs/01 - Introduction…](./Labs/01%20-%20Introduction%20to%20Data%20Analytics%20%26%20Business%20Intelligence/) · [All labs index](./Labs/README.md)
 
 | Lab | Focus |
 |-----|--------|
-| [Lab 01 — Discover CRM business data](./01%20-%20Introduction%20to%20Data%20Analytics%20%26%20Business%20Intelligence/Lab%2001%20-%20Discover%20CRM%20business%20data.md) | Dimensions, measures, grain, relationships, source types |
-| [Lab 02 — Investigate CRM data quality](./01%20-%20Introduction%20to%20Data%20Analytics%20%26%20Business%20Intelligence/Lab%2002%20-%20Investigate%20CRM%20data%20quality.md) | Profiling, issue register, join impact |
-| [Lab 03 — Calculate CRM KPIs and recommend an action](./01%20-%20Introduction%20to%20Data%20Analytics%20%26%20Business%20Intelligence/Lab%2003%20-%20Calculate%20CRM%20KPIs%20and%20recommend%20an%20action.md) | KPI scorecard, targets, interpretation |
-
-Sample files for each lab live under `data/Lab 0N - …` inside the module folder.
+| [Lab 01 — Discover CRM business data](./Labs/01%20-%20Introduction%20to%20Data%20Analytics%20%26%20Business%20Intelligence/Lab_01_Discover_CRM/Lab%2001%20-%20Discover%20CRM%20business%20data.md) | Dimensions, measures, grain, relationships, source types |
+| [Lab 02 — Investigate CRM data quality](./Labs/01%20-%20Introduction%20to%20Data%20Analytics%20%26%20Business%20Intelligence/Lab_02_Investigate_Data_Quality/Lab%2002%20-%20Investigate%20CRM%20data%20quality.md) | Profiling, issue register, join impact |
+| [Lab 03 — Calculate CRM KPIs](./Labs/01%20-%20Introduction%20to%20Data%20Analytics%20%26%20Business%20Intelligence/Lab_03_Calculate_CRM_KPIs/Lab%2003%20-%20Calculate%20CRM%20KPIs%20and%20recommend%20an%20action.md) | KPI scorecard, targets, interpretation |
 
 ---
 
@@ -42,7 +42,13 @@ Sample files for each lab live under `data/Lab 0N - …` inside the module folde
 - Basic report-development workflow
 - Publishing concepts
 
-**Hands-on 2** — Build the first CRM Sales Dashboard with Revenue, Customers, Opportunities, Region, Product and monthly trend analysis.
+**Hands-on labs** — [Labs/02 - Power BI Fundamentals](./Labs/02%20-%20Power%20BI%20Fundamentals/)
+
+| Lab | Focus |
+|-----|--------|
+| [Lab 01 — Connect, clean, transform](./Labs/02%20-%20Power%20BI%20Fundamentals/Lab_01_Connect_Clean_Transform/Lab%2001%20-%20Connect%20Clean%20and%20Transform%20CRM%20Data.md) | Power Query, CSV/Excel |
+| [Lab 02 — Semantic model & DAX](./Labs/02%20-%20Power%20BI%20Fundamentals/Lab_02_Semantic_Model_DAX/Lab%2002%20-%20Build%20CRM%20Semantic%20Model%20and%20DAX%20Measures.md) | Relationships, measures |
+| [Lab 03 — CRM sales dashboard](./Labs/02%20-%20Power%20BI%20Fundamentals/Lab_03_CRM_Sales_Dashboard/Lab%2003%20-%20Build%20and%20Publish%20CRM%20Sales%20Dashboard.md) | Report, slicers, optional publish |
 
 ---
 
@@ -60,7 +66,13 @@ Sample files for each lab live under `data/Lab 0N - …` inside the module folde
 - Workspaces, items and capacity concepts
 - End-to-end Fabric architecture
 
-**Hands-on 3** — Create a Fabric workspace and CRM Lakehouse, upload sample data, and explore Tables, Files and OneLake.
+**Hands-on labs** — [Labs/03 - Microsoft Fabric Fundamentals](./Labs/03%20-%20Microsoft%20Fabric%20Fundamentals/)
+
+| Lab | Focus |
+|-----|--------|
+| [Lab 01 — Workspaces & capacity](./Labs/03%20-%20Microsoft%20Fabric%20Fundamentals/Lab_01_Fabric_Workspace/Lab%2001%20-%20Explore%20Microsoft%20Fabric%20Workspaces%20Workloads%20and%20Capacity.md) | Fabric architecture |
+| [Lab 02 — Lakehouse & OneLake](./Labs/03%20-%20Microsoft%20Fabric%20Fundamentals/Lab_02_CRM_Lakehouse/Lab%2002%20-%20Create%20a%20CRM%20Lakehouse%20and%20Explore%20OneLake.md) | Files, Delta tables, SQL |
+| [Lab 03 — End-to-end CRM](./Labs/03%20-%20Microsoft%20Fabric%20Fundamentals/Lab_03_End_to_End_CRM/Lab%2003%20-%20Build%20an%20End-to-End%20CRM%20Analytics%20Solution.md) | Pipeline, notebook, Power BI |
 
 ---
 
@@ -492,8 +504,12 @@ Sample files for each lab live under `data/Lab 0N - …` inside the module folde
 
 ## Repository structure
 
-| Module folder | Status |
-|---------------|--------|
-| [01 - Introduction to Data Analytics & Business Intelligence](./01%20-%20Introduction%20to%20Data%20Analytics%20%26%20Business%20Intelligence/) | Available — 3 labs + `data/` sample folders |
+| Location | Status |
+|----------|--------|
+| [Labs/](./Labs/README.md) | **Primary** — all learner lab guides and data |
+| [Labs/01 - Introduction…](./Labs/01%20-%20Introduction%20to%20Data%20Analytics%20%26%20Business%20Intelligence/) | 3 Fabric/SQL labs |
+| [Labs/02 - Power BI Fundamentals](./Labs/02%20-%20Power%20BI%20Fundamentals/) | 3 Power BI Desktop labs |
+| [Labs/03 - Microsoft Fabric Fundamentals](./Labs/03%20-%20Microsoft%20Fabric%20Fundamentals/) | 3 Fabric portal labs |
+| [Presentation/](./Presentation/) | Slide PDFs (optional with labs) |
 
-Additional module folders will be added as content is published.
+Modules 4–27: syllabus in this README; lab folders not yet published.

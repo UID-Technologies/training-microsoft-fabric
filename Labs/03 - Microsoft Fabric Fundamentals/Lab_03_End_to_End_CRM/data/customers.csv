@@ -1,0 +1,21 @@
+CustomerID,CustomerName,Region,Industry
+C001,Customer 001,South,Technology
+C002,Customer 002,East,Manufacturing
+C003,Customer 003,West,Retail
+C004,Customer 004,North,Technology
+C005,Customer 005,South,Manufacturing
+C006,Customer 006,East,Retail
+C007,Customer 007,West,Technology
+C008,Customer 008,North,Manufacturing
+C009,Customer 009,South,Retail
+C010,Customer 010,East,Technology
+C011,Customer 011,West,Manufacturing
+C012,Customer 012,North,Retail
+C013,Customer 013,South,Technology
+C014,Customer 014,East,Manufacturing
+C015,Customer 015,West,Retail
+C016,Customer 016,North,Technology
+C017,Customer 017,South,Manufacturing
+C018,Customer 018,East,Retail
+C019,Customer 019,West,Technology
+C020,Customer 020,North,Manufacturing

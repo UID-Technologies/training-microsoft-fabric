@@ -1,0 +1,9 @@
+ProductID,ProductName,Category,UnitPrice
+P001,Product 01,Hardware,2500
+P002,Product 02,Services,5000
+P003,Product 03,Software,7500
+P004,Product 04,Hardware,10000
+P005,Product 05,Services,1000
+P006,Product 06,Software,2500
+P007,Product 07,Hardware,5000
+P008,Product 08,Services,7500
