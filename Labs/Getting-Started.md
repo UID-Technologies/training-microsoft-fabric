@@ -4,7 +4,7 @@
 
 | Lab type | Sign-in / software |
 |----------|-------------------|
-| **Microsoft Fabric** (Modules 1, 3, later Fabric modules) | https://app.fabric.microsoft.com with work or school account; **Fabric capacity** (F SKU or assigned trial) on your workspace |
+| **Microsoft Fabric** (Modules 1, 3–7, later Fabric modules) | https://app.fabric.microsoft.com with work or school account; **Fabric capacity** (F SKU or assigned trial) on your workspace |
 | **Power BI Desktop** (Module 2) | [Install Power BI Desktop](https://powerbi.microsoft.com/desktop/) on Windows; sign in optional until publish exercises |
 
 **Fabric capacity:** Pro or Power BI alone often **cannot** create Lakehouse, Notebook, Pipeline, or Warehouse. If **+ New item → Lakehouse** is missing or creation fails, ask your instructor to assign Fabric capacity to the workspace (**Workspace settings → Workspace type**).
@@ -39,6 +39,24 @@ Example (Module 3):
 
 ```text
 Labs/03 - Microsoft Fabric Fundamentals/Lab_02_CRM_Lakehouse/data/customers.csv
+```
+
+Example (Module 5):
+
+```text
+Labs/05 - Fabric Data Factory & Pipelines/Lab_01_Bronze_Pipeline_Ingest/data/customers.csv
+```
+
+Example (Module 6):
+
+```text
+Labs/06 - Power Query & Dataflows Gen2/Lab_01_Dataflow_CRM_Silver/data/customers_source.csv
+```
+
+Example (Module 7):
+
+```text
+Labs/07 - Fabric Notebooks & PySpark Fundamentals/Lab_01_Notebook_Gold_CRM/data/sales.csv
 ```
 
 ## When the UI does not match the guide

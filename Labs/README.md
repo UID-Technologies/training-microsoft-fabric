@@ -16,8 +16,12 @@ All practical exercises for this course live under **`Labs/`**. Each module fold
 | 1 — Introduction to Data Analytics & BI | [01 - Introduction…](./01%20-%20Introduction%20to%20Data%20Analytics%20%26%20Business%20Intelligence/) | Fabric + Lakehouse + SQL endpoint |
 | 2 — Power BI Fundamentals | [02 - Power BI Fundamentals](./02%20-%20Power%20BI%20Fundamentals/) | Power BI Desktop (Windows) |
 | 3 — Microsoft Fabric Fundamentals | [03 - Microsoft Fabric Fundamentals](./03%20-%20Microsoft%20Fabric%20Fundamentals/) | Fabric portal + capacity |
+| 4 — OneLake & Fabric Lakehouse | [04 - OneLake & Fabric Lakehouse](./04%20-%20OneLake%20%26%20Fabric%20Lakehouse/) | Fabric Lakehouse, Notebook, SQL endpoint |
+| 5 — Fabric Data Factory & Pipelines | [05 - Fabric Data Factory & Pipelines](./05%20-%20Fabric%20Data%20Factory%20%26%20Pipelines/) | Data pipeline, Copy data, monitoring |
+| 6 — Power Query & Dataflows Gen2 | [06 - Power Query & Dataflows Gen2](./06%20-%20Power%20Query%20%26%20Dataflows%20Gen2/) | Dataflow Gen2, Silver tables |
+| 7 — Fabric Notebooks & PySpark | [07 - Fabric Notebooks & PySpark Fundamentals](./07%20-%20Fabric%20Notebooks%20%26%20PySpark%20Fundamentals/) | Notebook, PySpark, Gold tables |
 
-Modules 4–27 in the [course README](../README.md) are syllabus-only until lab folders are added.
+Modules 8–27 in the [course README](../README.md) are syllabus-only until lab folders are added.
 
 ## Standard folder pattern
 

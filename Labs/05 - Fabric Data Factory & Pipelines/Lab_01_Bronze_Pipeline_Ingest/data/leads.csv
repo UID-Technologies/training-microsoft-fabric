@@ -1,0 +1,27 @@
+LeadID,CompanyName,Source,Status,Region,CreatedDate,ConvertedCustomerID
+L001,Lead Company 001,Web,New,North,2026-01-01,C001
+L002,Lead Company 002,Event,Qualified,South,2026-01-02,C002
+L003,Lead Company 003,Partner,Converted,East,2026-01-03,C003
+L004,Lead Company 004,Web,New,West,2026-01-04,C004
+L005,Lead Company 005,Event,Qualified,North,2026-01-05,C005
+L006,Lead Company 006,Partner,Converted,South,2026-01-06,C006
+L007,Lead Company 007,Web,New,East,2026-01-07,C007
+L008,Lead Company 008,Event,Qualified,north,2026-01-08,
+L009,Lead Company 009,Partner,Converted,West,2026-01-09,C009
+L010,Lead Company 010,Web,New,North,2026-01-10,C010
+L011,Lead Company 011,Event,Qualified,South,2026-01-11,
+L012,Lead Company 012,Web,New,East,2026-01-12,
+L012,Lead Company 012 DUPLICATE,Partner,New,East,2026-01-12,
+L013,Lead Company 013,Web,Qualified,West,2026-01-13,
+L014,Lead Company 014,Event,New,North,2026-01-14,
+L015,Lead Company 015,Partner,Converted,South,2026-01-15,
+L016,Lead Company 016,Web,New,East,2026-01-16,
+L017,Lead Company 017,Event,Qualified,West,2026-01-17,
+L018,,Partner,New,North,2026-01-18,
+L019,Lead Company 019,Web,Converted,South,2026-01-19,
+L020,Lead Company 020,Event,New,East,2026-01-20,
+L021,Lead Company 021,Partner,Qualified,West,2026-01-21,
+L022,Lead Company 022,Web,New,North,2026-01-22,
+L023,Lead Company 023,Event,Converted,South,2026-01-23,
+L024,Lead Company 024,Partner,New,East,2026-01-24,
+L025,Lead Company 025,Web,Qualified,West,2026-01-25,

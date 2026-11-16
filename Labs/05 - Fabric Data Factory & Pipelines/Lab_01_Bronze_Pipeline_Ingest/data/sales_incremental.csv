@@ -1,0 +1,3 @@
+SaleID,CustomerID,ProductID,SaleDate,Quantity,Revenue
+S046,C010,P001,2026-02-15,1,83500
+S047,C011,P002,2026-02-16,2,85250

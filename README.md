@@ -4,6 +4,8 @@ End-to-end curriculum for building a **CRM Sales & Revenue Analytics Platform** 
 
 **Learners:** all hands-on guides and sample data are under **[Labs/](./Labs/README.md)** (start with [Getting-Started.md](./Labs/Getting-Started.md)).
 
+**Instructors:** slide PDFs for Modules **1–7** are in **[Presentation/](./Presentation/)** — see [Presentations by module](#presentations-by-module).
+
 ---
 
 ## Module 1 — Introduction to Data Analytics & Business Intelligence
@@ -18,6 +20,8 @@ End-to-end curriculum for building a **CRM Sales & Revenue Analytics Platform** 
 - Data warehouse, data lake and Lakehouse fundamentals
 - Modern analytics platform overview
 - CRM analytics use-case walkthrough
+
+**Presentation** — [01 - Introduction to Data Analytics and Business Intelligence (PDF)](./Presentation/01%20-%20Introduction-to-Data-Analytics-and-Business-Intelligence.pdf)
 
 **Hands-on labs** — [Labs/01 - Introduction…](./Labs/01%20-%20Introduction%20to%20Data%20Analytics%20%26%20Business%20Intelligence/) · [All labs index](./Labs/README.md)
 
@@ -41,6 +45,8 @@ End-to-end curriculum for building a **CRM Sales & Revenue Analytics Platform** 
 - Core visuals, filters and slicers
 - Basic report-development workflow
 - Publishing concepts
+
+**Presentation** — [02 - Power BI Fundamentals (PDF)](./Presentation/02%20-%20Power-BI-Fundamentals-From-Raw-Data-to-Business-Insights.pdf)
 
 **Hands-on labs** — [Labs/02 - Power BI Fundamentals](./Labs/02%20-%20Power%20BI%20Fundamentals/)
 
@@ -66,6 +72,8 @@ End-to-end curriculum for building a **CRM Sales & Revenue Analytics Platform** 
 - Workspaces, items and capacity concepts
 - End-to-end Fabric architecture
 
+**Presentation** — [03 - Microsoft Fabric: The Unified Analytics Platform (PDF)](./Presentation/03%20-%20Microsoft-Fabric-The-Unified-Analytics-Platform.pdf)
+
 **Hands-on labs** — [Labs/03 - Microsoft Fabric Fundamentals](./Labs/03%20-%20Microsoft%20Fabric%20Fundamentals/)
 
 | Lab | Focus |
@@ -90,7 +98,14 @@ End-to-end curriculum for building a **CRM Sales & Revenue Analytics Platform** 
 - Medallion architecture: Bronze, Silver and Gold
 - Designing the CRM Lakehouse
 
-**Hands-on 4** — Create the CRM Lakehouse structure and organize Customers, Leads, Opportunities, Products, Sales and Targets into a medallion-style design.
+**Presentation** — [04 - OneLake and Fabric Lakehouse (PDF)](./Presentation/04%20-%20OneLake-and-Fabric-Lakehouse.pdf)
+
+**Hands-on labs** — [Labs/04 - OneLake & Fabric Lakehouse](./Labs/04%20-%20OneLake%20%26%20Fabric%20Lakehouse/)
+
+| Lab | Focus |
+|-----|--------|
+| [Lab 01 — OneLake, Lakehouse fundamentals & SQL endpoint](./Labs/04%20-%20OneLake%20%26%20Fabric%20Lakehouse/Lab_01_OneLake_Lakehouse_Fundamentals/Lab%2001%20-%20OneLake%20Lakehouse%20fundamentals%20and%20the%20SQL%20endpoint.md) | OneLake, Files, Delta, Lakehouse vs Warehouse |
+| [Lab 02 — Medallion CRM Lakehouse](./Labs/04%20-%20OneLake%20%26%20Fabric%20Lakehouse/Lab_02_Medallion_CRM_Lakehouse/Lab%2002%20-%20Design%20a%20medallion%20CRM%20Lakehouse.md) | Bronze/Silver/Gold for all six CRM entities (Hands-on 4) |
 
 ---
 
@@ -109,7 +124,13 @@ End-to-end curriculum for building a **CRM Sales & Revenue Analytics Platform** 
 - Error handling and retries
 - Incremental loading introduction
 
-**Hands-on 5** — Build and execute a parameterized pipeline that ingests CRM datasets into the Bronze layer and review execution monitoring.
+**Presentation** — [05 - Fabric Data Factory and Pipelines (PDF)](./Presentation/05%20-%20Fabric-Data-Factory-and-Pipelines.pdf)
+
+**Hands-on lab** — [Labs/05 - Fabric Data Factory & Pipelines](./Labs/05%20-%20Fabric%20Data%20Factory%20%26%20Pipelines/)
+
+| Lab | Focus |
+|-----|--------|
+| [Lab 01 — Parameterized pipeline Bronze ingest and monitoring (Hands-on 5)](./Labs/05%20-%20Fabric%20Data%20Factory%20%26%20Pipelines/Lab_01_Bronze_Pipeline_Ingest/Lab%2001%20-%20Parameterized%20pipeline%20Bronze%20ingest%20and%20monitoring.md) | Copy data, parameters, expressions, monitoring, retries, incremental & scheduling concepts |
 
 ---
 
@@ -127,7 +148,13 @@ End-to-end curriculum for building a **CRM Sales & Revenue Analytics Platform** 
 - Dataflow destinations
 - Dataflow vs Pipeline vs Notebook
 
-**Hands-on 6** — Clean duplicate customers, missing regions, invalid opportunity stages, dates and salesperson names; write validated Silver data.
+**Presentation** — [06 - Power Query and Dataflows Gen2 (PDF)](./Presentation/06%20-%20Power-Query-and-Dataflows-Gen2.pdf)
+
+**Hands-on lab** — [Labs/06 - Power Query & Dataflows Gen2](./Labs/06%20-%20Power%20Query%20%26%20Dataflows%20Gen2/)
+
+| Lab | Focus |
+|-----|--------|
+| [Lab 01 — Dataflow Gen2 CRM Silver cleansing (Hands-on 6)](./Labs/06%20-%20Power%20Query%20%26%20Dataflows%20Gen2/Lab_01_Dataflow_CRM_Silver/Lab%2001%20-%20Dataflow%20Gen2%20CRM%20Silver%20cleansing.md) | Power Query transforms, parameters, Lakehouse Silver destination, vs pipeline/notebook |
 
 ---
 
@@ -144,7 +171,13 @@ End-to-end curriculum for building a **CRM Sales & Revenue Analytics Platform** 
 - Spark SQL introduction
 - When to use Notebook vs Dataflow vs SQL
 
-**Hands-on 7** — Transform opportunities and sales, aggregate revenue by region, join customer/opportunity data and write curated Gold tables.
+**Presentation** — [07 - Fabric Notebooks and PySpark Fundamentals (PDF)](./Presentation/07%20-%20Fabric-Notebooks-and-PySpark-Fundamentals.pdf)
+
+**Hands-on lab** — [Labs/07 - Fabric Notebooks & PySpark Fundamentals](./Labs/07%20-%20Fabric%20Notebooks%20%26%20PySpark%20Fundamentals/)
+
+| Lab | Focus |
+|-----|--------|
+| [Lab 01 — PySpark Gold CRM tables (Hands-on 7)](./Labs/07%20-%20Fabric%20Notebooks%20%26%20PySpark%20Fundamentals/Lab_01_Notebook_Gold_CRM/Lab%2001%20-%20PySpark%20Gold%20CRM%20tables.md) | DataFrames, transforms, joins, Delta Gold, Spark SQL, vs Dataflow/SQL |
 
 ---
 
@@ -502,6 +535,24 @@ End-to-end curriculum for building a **CRM Sales & Revenue Analytics Platform** 
 
 ---
 
+## Presentations by module
+
+Instructor slide decks (PDF). Pair each deck with the matching module labs when delivered in class.
+
+| Module | Presentation |
+|--------|----------------|
+| 1 — Introduction to Data Analytics & BI | [01 - Introduction to Data Analytics and Business Intelligence](./Presentation/01%20-%20Introduction-to-Data-Analytics-and-Business-Intelligence.pdf) |
+| 2 — Power BI Fundamentals | [02 - Power BI Fundamentals](./Presentation/02%20-%20Power-BI-Fundamentals-From-Raw-Data-to-Business-Insights.pdf) |
+| 3 — Microsoft Fabric Fundamentals | [03 - Microsoft Fabric: The Unified Analytics Platform](./Presentation/03%20-%20Microsoft-Fabric-The-Unified-Analytics-Platform.pdf) |
+| 4 — OneLake & Fabric Lakehouse | [04 - OneLake and Fabric Lakehouse](./Presentation/04%20-%20OneLake-and-Fabric-Lakehouse.pdf) |
+| 5 — Fabric Data Factory & Pipelines | [05 - Fabric Data Factory and Pipelines](./Presentation/05%20-%20Fabric-Data-Factory-and-Pipelines.pdf) |
+| 6 — Power Query & Dataflows Gen2 | [06 - Power Query and Dataflows Gen2](./Presentation/06%20-%20Power-Query-and-Dataflows-Gen2.pdf) |
+| 7 — Fabric Notebooks & PySpark Fundamentals | [07 - Fabric Notebooks and PySpark Fundamentals](./Presentation/07%20-%20Fabric-Notebooks-and-PySpark-Fundamentals.pdf) |
+
+Modules **8–27:** syllabus in this README; presentations and lab folders not yet published.
+
+---
+
 ## Repository structure
 
 | Location | Status |
@@ -510,6 +561,10 @@ End-to-end curriculum for building a **CRM Sales & Revenue Analytics Platform** 
 | [Labs/01 - Introduction…](./Labs/01%20-%20Introduction%20to%20Data%20Analytics%20%26%20Business%20Intelligence/) | 3 Fabric/SQL labs |
 | [Labs/02 - Power BI Fundamentals](./Labs/02%20-%20Power%20BI%20Fundamentals/) | 3 Power BI Desktop labs |
 | [Labs/03 - Microsoft Fabric Fundamentals](./Labs/03%20-%20Microsoft%20Fabric%20Fundamentals/) | 3 Fabric portal labs |
-| [Presentation/](./Presentation/) | Slide PDFs (optional with labs) |
+| [Labs/04 - OneLake & Fabric Lakehouse](./Labs/04%20-%20OneLake%20%26%20Fabric%20Lakehouse/) | 2 Lakehouse / medallion labs |
+| [Labs/05 - Fabric Data Factory & Pipelines](./Labs/05%20-%20Fabric%20Data%20Factory%20%26%20Pipelines/) | 1 Data pipeline lab |
+| [Labs/06 - Power Query & Dataflows Gen2](./Labs/06%20-%20Power%20Query%20%26%20Dataflows%20Gen2/) | 1 Dataflow Gen2 lab |
+| [Labs/07 - Fabric Notebooks & PySpark Fundamentals](./Labs/07%20-%20Fabric%20Notebooks%20%26%20PySpark%20Fundamentals/) | 1 Notebook / PySpark lab |
+| [Presentation/](./Presentation/) | **PDF decks for Modules 1–7** ([index above](#presentations-by-module)) |
 
-Modules 4–27: syllabus in this README; lab folders not yet published.
+Modules **8–27:** syllabus in this README; lab folders not yet published.
