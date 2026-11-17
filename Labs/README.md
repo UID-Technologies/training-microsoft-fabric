@@ -20,8 +20,13 @@ All practical exercises for this course live under **`Labs/`**. Each module fold
 | 5 — Fabric Data Factory & Pipelines | [05 - Fabric Data Factory & Pipelines](./05%20-%20Fabric%20Data%20Factory%20%26%20Pipelines/) | Data pipeline, Copy data, monitoring |
 | 6 — Power Query & Dataflows Gen2 | [06 - Power Query & Dataflows Gen2](./06%20-%20Power%20Query%20%26%20Dataflows%20Gen2/) | Dataflow Gen2, Silver tables |
 | 7 — Fabric Notebooks & PySpark | [07 - Fabric Notebooks & PySpark Fundamentals](./07%20-%20Fabric%20Notebooks%20%26%20PySpark%20Fundamentals/) | Notebook, PySpark, Gold tables |
+| 8 — Fabric Data Warehouse | [08 - Fabric Data Warehouse](./08%20-%20Fabric%20Data%20Warehouse/) | Warehouse T-SQL, views |
+| 9 — Data Modeling & Star Schema | [09 - Data Modeling & Star Schema](./09%20-%20Data%20Modeling%20%26%20Star%20Schema/) | Star schema Dim/Fact tables |
+| 10 — Power BI Semantic Models | [10 - Power BI Semantic Models](./10%20-%20Power%20BI%20Semantic%20Models/) | Power BI Desktop semantic model |
+| 11 — DAX Fundamentals | [11 - DAX Fundamentals](./11%20-%20DAX%20Fundamentals/) | DAX + time intelligence (Hands-on 11–12) |
+| 12 — Power BI Reporting | [12 - Power BI Reporting](./12%20-%20Power%20BI%20Reporting/) | Dashboards (Hands-on 13–15) |
 
-Modules 8–27 in the [course README](../README.md) are syllabus-only until lab folders are added.
+Modules 13–27 in the [course README](../README.md) are syllabus-only until lab folders are added (Hands-on **13–15** in Module **12**).
 
 ## Standard folder pattern
 

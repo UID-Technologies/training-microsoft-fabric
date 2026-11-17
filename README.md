@@ -6,6 +6,25 @@ End-to-end curriculum for building a **CRM Sales & Revenue Analytics Platform** 
 
 **Instructors:** slide PDFs for Modules **1–7** are in **[Presentation/](./Presentation/)** — see [Presentations by module](#presentations-by-module).
 
+### Published labs (Modules 1–12)
+
+| Module | Lab folder | Labs |
+|--------|------------|------|
+| 1 — Intro to DA & BI | [Labs/01…](./Labs/01%20-%20Introduction%20to%20Data%20Analytics%20%26%20Business%20Intelligence/) | 3 |
+| 2 — Power BI Fundamentals | [Labs/02…](./Labs/02%20-%20Power%20BI%20Fundamentals/) | 3 |
+| 3 — Fabric Fundamentals | [Labs/03…](./Labs/03%20-%20Microsoft%20Fabric%20Fundamentals/) | 3 |
+| 4 — OneLake & Lakehouse | [Labs/04…](./Labs/04%20-%20OneLake%20%26%20Fabric%20Lakehouse/) | 2 |
+| 5 — Data Factory & Pipelines | [Labs/05…](./Labs/05%20-%20Fabric%20Data%20Factory%20%26%20Pipelines/) | 1 |
+| 6 — Dataflows Gen2 | [Labs/06…](./Labs/06%20-%20Power%20Query%20%26%20Dataflows%20Gen2/) | 1 |
+| 7 — Notebooks & PySpark | [Labs/07…](./Labs/07%20-%20Fabric%20Notebooks%20%26%20PySpark%20Fundamentals/) | 1 |
+| 8 — Fabric Warehouse | [Labs/08…](./Labs/08%20-%20Fabric%20Data%20Warehouse/) | 1 |
+| 9 — Star schema | [Labs/09…](./Labs/09%20-%20Data%20Modeling%20%26%20Star%20Schema/) | 1 |
+| 10 — Semantic models | [Labs/10…](./Labs/10%20-%20Power%20BI%20Semantic%20Models/) | 1 |
+| 11 — DAX & KPIs | [Labs/11…](./Labs/11%20-%20DAX%20Fundamentals/) | 1 (Hands-on **11–12**) |
+| 12 — Power BI Reporting | [Labs/12…](./Labs/12%20-%20Power%20BI%20Reporting/) | 1 (Hands-on **13–15**) |
+
+Modules **13–27:** topics below; additional lab folders not yet published. **Hands-on 13–15** are in **Module 12** lab.
+
 ---
 
 ## Module 1 — Introduction to Data Analytics & Business Intelligence
@@ -195,7 +214,11 @@ End-to-end curriculum for building a **CRM Sales & Revenue Analytics Platform** 
 - Warehouse security introduction
 - Power BI integration
 
-**Hands-on 8** — Query CRM data for revenue by region/product, salesperson performance, win/loss, customer revenue and monthly trends.
+**Hands-on lab** — [Labs/08 - Fabric Data Warehouse](./Labs/08%20-%20Fabric%20Data%20Warehouse/)
+
+| Lab | Focus |
+|-----|--------|
+| [Lab 01 — CRM analytics in the Fabric Warehouse (Hands-on 8)](./Labs/08%20-%20Fabric%20Data%20Warehouse/Lab_01_Warehouse_CRM_Analytics/Lab%2001%20-%20CRM%20analytics%20in%20the%20Fabric%20Warehouse.md) | Load warehouse tables, T-SQL, views, security intro, optional Power BI |
 
 ---
 
@@ -212,7 +235,11 @@ End-to-end curriculum for building a **CRM Sales & Revenue Analytics Platform** 
 - Modeling for Power BI
 - Performance-oriented modeling practices
 
-**Hands-on 9** — Build DimCustomer, DimProduct, DimSalesperson, DimRegion, DimDate, FactSales and FactOpportunity.
+**Hands-on lab** — [Labs/09 - Data Modeling & Star Schema](./Labs/09%20-%20Data%20Modeling%20%26%20Star%20Schema/)
+
+| Lab | Focus |
+|-----|--------|
+| [Lab 01 — Build CRM star schema tables (Hands-on 9)](./Labs/09%20-%20Data%20Modeling%20%26%20Star%20Schema/Lab_01_CRM_Star_Schema/Lab%2001%20-%20Build%20CRM%20star%20schema%20tables.md) | Dimensions, facts, DimDate, star vs snowflake, Power BI modeling notes |
 
 ---
 
@@ -228,7 +255,11 @@ End-to-end curriculum for building a **CRM Sales & Revenue Analytics Platform** 
 - Direct Lake introduction
 - Import vs DirectQuery vs Direct Lake
 
-**Hands-on 10** — Build the reusable CRM semantic model and validate business relationships.
+**Hands-on lab** — [Labs/10 - Power BI Semantic Models](./Labs/10%20-%20Power%20BI%20Semantic%20Models/)
+
+| Lab | Focus |
+|-----|--------|
+| [Lab 01 — Build the reusable CRM semantic model (Hands-on 10)](./Labs/10%20-%20Power%20BI%20Semantic%20Models/Lab_01_CRM_Semantic_Model/Lab%2001%20-%20Build%20the%20reusable%20CRM%20semantic%20model.md) | Star schema, relationships, measures, hierarchies, date table, Import/DQ/Direct Lake |
 
 ---
 
@@ -243,30 +274,37 @@ End-to-end curriculum for building a **CRM Sales & Revenue Analytics Platform** 
 - CALCULATE and FILTER
 - Row context and filter context
 - Context transition introduction
+- Intermediate DAX and time intelligence (Hands-on 12): CALCULATE scenarios, MTD/QTD/YTD, previous period, YoY, ranking, variables, percent of total, actual vs target
 
-**Hands-on 11** — Create Total Revenue, Customer Count, Pipeline Value, Won/Lost Opportunities, Win Rate, Average Deal Size and Lead Conversion Rate.
+**Hands-on lab** — [Labs/11 - DAX Fundamentals](./Labs/11%20-%20DAX%20Fundamentals/) (**Hands-on 11 and 12** in one lab)
+
+| Lab | Focus |
+|-----|--------|
+| [Lab 01 — CRM DAX fundamentals and business KPIs](./Labs/11%20-%20DAX%20Fundamentals/Lab_01_CRM_DAX_KPIs/Lab%2001%20-%20CRM%20DAX%20fundamentals%20and%20business%20KPIs.md) | Core DAX, CALCULATE, time intelligence, rank & contribution |
 
 ---
 
-## Module 12 — Intermediate DAX & Time Intelligence
+## Module 12 — Power BI Reporting
 
-**Topics**
+**Topics (Modules 13–15 combined)**
 
-- CALCULATE business scenarios
-- Date functions
-- MTD, QTD and YTD
-- Previous-period analysis
-- Year-over-year analysis
-- Ranking and Top-N
-- Variables
-- Percentage of total
-- Actual vs target
+- Visualization design principles; selecting the right visual; KPI cards, charts, matrix, slicers  
+- Conditional formatting; drill-down and drill-through; report tooltips  
+- Bookmarks, buttons, navigation; visual interactions; report-page design; mobile layout  
+- Sales funnel, pipeline by stage, win/loss, lead conversion, salesperson/region/product views  
+- Customer 360, segmentation, revenue history, drill-through to detail  
 
-**Hands-on 12** — Build Revenue YTD, Previous Year Revenue, YoY Growth %, Target Achievement %, Salesperson Rank and Product Contribution %.
+**Hands-on lab** — [Labs/12 - Power BI Reporting](./Labs/12%20-%20Power%20BI%20Reporting/) (**Hands-on 13–15**)
+
+| Lab | Focus |
+|-----|--------|
+| [Lab 01 — CRM reporting dashboards](./Labs/12%20-%20Power%20BI%20Reporting/Lab_01_CRM_Reporting_Dashboards/Lab%2001%20-%20CRM%20reporting%20dashboards.md) | Executive dashboard, pipeline dashboard, Customer 360 |
 
 ---
 
 ## Module 13 — Power BI Visualization & Report Design
+
+*Hands-on:* [Module 12 Lab 01](./Labs/12%20-%20Power%20BI%20Reporting/Lab_01_CRM_Reporting_Dashboards/Lab%2001%20-%20CRM%20reporting%20dashboards.md) (*Executive* page).
 
 **Topics**
 
@@ -281,11 +319,13 @@ End-to-end curriculum for building a **CRM Sales & Revenue Analytics Platform** 
 - Report-page design
 - Mobile layout introduction
 
-**Hands-on 13** — Build the Executive Sales Dashboard with Revenue, Pipeline, Win Rate, Deal Size, Target Achievement, trends and regional/customer analysis.
+**Hands-on 13** — Executive Sales Dashboard — in [Module 12 Lab 01](./Labs/12%20-%20Power%20BI%20Reporting/Lab_01_CRM_Reporting_Dashboards/Lab%2001%20-%20CRM%20reporting%20dashboards.md) (Page *Executive*).
 
 ---
 
 ## Module 14 — CRM Sales Pipeline Analytics
+
+*Hands-on:* [Module 12 Lab 01](./Labs/12%20-%20Power%20BI%20Reporting/Lab_01_CRM_Reporting_Dashboards/Lab%2001%20-%20CRM%20reporting%20dashboards.md) (*Pipeline* page).
 
 **Topics**
 
@@ -298,11 +338,13 @@ End-to-end curriculum for building a **CRM Sales & Revenue Analytics Platform** 
 - Salesperson, region and product performance
 - Actual vs target
 
-**Hands-on 14** — Build the Sales Pipeline Dashboard and conversion funnel.
+**Hands-on 14** — Sales Pipeline Dashboard — in [Module 12 Lab 01](./Labs/12%20-%20Power%20BI%20Reporting/Lab_01_CRM_Reporting_Dashboards/Lab%2001%20-%20CRM%20reporting%20dashboards.md) (Page *Pipeline*).
 
 ---
 
 ## Module 15 — Customer Analytics
+
+*Hands-on:* [Module 12 Lab 01](./Labs/12%20-%20Power%20BI%20Reporting/Lab_01_CRM_Reporting_Dashboards/Lab%2001%20-%20CRM%20reporting%20dashboards.md) (*Customer 360* page).
 
 **Topics**
 
@@ -315,7 +357,7 @@ End-to-end curriculum for building a **CRM Sales & Revenue Analytics Platform** 
 - Customer trends
 - Drill-through design
 
-**Hands-on 15** — Build a Customer 360 page with profile, revenue, orders, opportunities, activities and products.
+**Hands-on 15** — Customer 360 page — in [Module 12 Lab 01](./Labs/12%20-%20Power%20BI%20Reporting/Lab_01_CRM_Reporting_Dashboards/Lab%2001%20-%20CRM%20reporting%20dashboards.md) (Page *Customer 360*).
 
 ---
 
@@ -549,7 +591,7 @@ Instructor slide decks (PDF). Pair each deck with the matching module labs when 
 | 6 — Power Query & Dataflows Gen2 | [06 - Power Query and Dataflows Gen2](./Presentation/06%20-%20Power-Query-and-Dataflows-Gen2.pdf) |
 | 7 — Fabric Notebooks & PySpark Fundamentals | [07 - Fabric Notebooks and PySpark Fundamentals](./Presentation/07%20-%20Fabric-Notebooks-and-PySpark-Fundamentals.pdf) |
 
-Modules **8–27:** syllabus in this README; presentations and lab folders not yet published.
+**Lab status:** Modules **1–12** have folders under [Labs/](./Labs/README.md). **Presentations** available for Modules **1–7** only.
 
 ---
 
@@ -565,6 +607,11 @@ Modules **8–27:** syllabus in this README; presentations and lab folders not y
 | [Labs/05 - Fabric Data Factory & Pipelines](./Labs/05%20-%20Fabric%20Data%20Factory%20%26%20Pipelines/) | 1 Data pipeline lab |
 | [Labs/06 - Power Query & Dataflows Gen2](./Labs/06%20-%20Power%20Query%20%26%20Dataflows%20Gen2/) | 1 Dataflow Gen2 lab |
 | [Labs/07 - Fabric Notebooks & PySpark Fundamentals](./Labs/07%20-%20Fabric%20Notebooks%20%26%20PySpark%20Fundamentals/) | 1 Notebook / PySpark lab |
+| [Labs/08 - Fabric Data Warehouse](./Labs/08%20-%20Fabric%20Data%20Warehouse/) | 1 Fabric Warehouse lab |
+| [Labs/09 - Data Modeling & Star Schema](./Labs/09%20-%20Data%20Modeling%20%26%20Star%20Schema/) | 1 star-schema warehouse lab |
+| [Labs/10 - Power BI Semantic Models](./Labs/10%20-%20Power%20BI%20Semantic%20Models/) | 1 Power BI Desktop semantic model lab |
+| [Labs/11 - DAX Fundamentals](./Labs/11%20-%20DAX%20Fundamentals/) | 1 DAX / time intelligence lab (Hands-on 11–12) |
+| [Labs/12 - Power BI Reporting](./Labs/12%20-%20Power%20BI%20Reporting/) | 1 reporting lab (Hands-on 13–15) |
 | [Presentation/](./Presentation/) | **PDF decks for Modules 1–7** ([index above](#presentations-by-module)) |
 
-Modules **8–27:** syllabus in this README; lab folders not yet published.
+**Syllabus only (no lab folder yet):** Modules **16–27**. **Hands-on 13–15** → Module **12** lab. **Hands-on 11–12** → Module **11** lab.

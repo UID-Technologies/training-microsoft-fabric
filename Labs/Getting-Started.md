@@ -4,7 +4,8 @@
 
 | Lab type | Sign-in / software |
 |----------|-------------------|
-| **Microsoft Fabric** (Modules 1, 3–7, later Fabric modules) | https://app.fabric.microsoft.com with work or school account; **Fabric capacity** (F SKU or assigned trial) on your workspace |
+| **Microsoft Fabric** (Modules 1, 3–9, later Fabric modules) | https://app.fabric.microsoft.com with work or school account; **Fabric capacity** (F SKU or assigned trial) on your workspace |
+| **Power BI Desktop** (Modules 2, 10–12+) | [Install Power BI Desktop](https://powerbi.microsoft.com/desktop/) on Windows for semantic model and report labs |
 | **Power BI Desktop** (Module 2) | [Install Power BI Desktop](https://powerbi.microsoft.com/desktop/) on Windows; sign in optional until publish exercises |
 
 **Fabric capacity:** Pro or Power BI alone often **cannot** create Lakehouse, Notebook, Pipeline, or Warehouse. If **+ New item → Lakehouse** is missing or creation fails, ask your instructor to assign Fabric capacity to the workspace (**Workspace settings → Workspace type**).
@@ -57,6 +58,36 @@ Example (Module 7):
 
 ```text
 Labs/07 - Fabric Notebooks & PySpark Fundamentals/Lab_01_Notebook_Gold_CRM/data/sales.csv
+```
+
+Example (Module 8):
+
+```text
+Labs/08 - Fabric Data Warehouse/Lab_01_Warehouse_CRM_Analytics/data/sales.csv
+```
+
+Example (Module 9):
+
+```text
+Labs/09 - Data Modeling & Star Schema/Lab_01_CRM_Star_Schema/data/customers.csv
+```
+
+Example (Module 10):
+
+```text
+Labs/10 - Power BI Semantic Models/Lab_01_CRM_Semantic_Model/data/FactSales.csv
+```
+
+Example (Module 11):
+
+```text
+Labs/11 - DAX Fundamentals/Lab_01_CRM_DAX_KPIs/data/FactSales.csv
+```
+
+Example (Module 12):
+
+```text
+Labs/12 - Power BI Reporting/Lab_01_CRM_Reporting_Dashboards/data/FactSales.csv
 ```
 
 ## When the UI does not match the guide
