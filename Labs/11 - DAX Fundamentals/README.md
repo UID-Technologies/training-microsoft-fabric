@@ -10,6 +10,6 @@ One lab covers **Module 11** and **Module 12** DAX / time intelligence (**Hands-
 
 **Validation highlights:** revenue **909500** (all years) · 2026 YTD **533500** · lead conversion **50%** · target achievement ≈ **84.68%**.
 
-Module 12 topics are integrated in this lab; there is no separate Module 12 folder.
+Syllabus **time intelligence** (topics that were Module 12 in the outline) is in this lab **Part D**. **Power BI Reporting** is [Module 12](../12%20-%20Power%20BI%20Reporting/) (separate folder).
 
 Course outline: [../../README.md](../../README.md)
