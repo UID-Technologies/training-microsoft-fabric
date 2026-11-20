@@ -5,7 +5,8 @@
 | Lab type | Sign-in / software |
 |----------|-------------------|
 | **Microsoft Fabric** (Modules 1, 3–9, later Fabric modules) | https://app.fabric.microsoft.com with work or school account; **Fabric capacity** (F SKU or assigned trial) on your workspace |
-| **Power BI Desktop** (Modules 2, 10–12+) | [Install Power BI Desktop](https://powerbi.microsoft.com/desktop/) on Windows for semantic model and report labs |
+| **Power BI Desktop** (Modules 2, 10) | [Install Power BI Desktop](https://powerbi.microsoft.com/desktop/) on Windows for those semantic model labs |
+| **Power BI on the web** (Modules 11–12) | https://app.fabric.microsoft.com — Lakehouse, semantic model, and report in Fabric (no Desktop required) |
 | **Power BI Desktop** (Module 2) | [Install Power BI Desktop](https://powerbi.microsoft.com/desktop/) on Windows; sign in optional until publish exercises |
 
 **Fabric capacity:** Pro or Power BI alone often **cannot** create Lakehouse, Notebook, Pipeline, or Warehouse. If **+ New item → Lakehouse** is missing or creation fails, ask your instructor to assign Fabric capacity to the workspace (**Workspace settings → Workspace type**).

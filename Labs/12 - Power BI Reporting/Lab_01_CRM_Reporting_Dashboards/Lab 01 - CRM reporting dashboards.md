@@ -1,6 +1,6 @@
 # Lab 01 — CRM reporting dashboards (Executives, Pipeline, Customer 360)
 
-> **Learner path:** [Getting-Started.md](../Getting-Started.md) · [Navigation reference](../../_shared/Fabric-and-Power-BI-Navigation.md). Data in **`Lab_01_CRM_Reporting_Dashboards/data/`**.
+> **Learner path:** [Getting-Started.md](../Getting-Started.md) · [Navigation reference](../../_shared/Fabric-and-Power-BI-Navigation.md). **Standalone** — no Module 11 file required. Data only from **`Lab_01_CRM_Reporting_Dashboards/data/`**.
 
 ## At a glance
 
@@ -8,68 +8,181 @@
 |------|--------|
 | Time | About 120–150 minutes |
 | Covers | **Modules 13–15** reporting topics; **Hands-on 13–15** in one report |
-| Deliverable | `CRM_Reporting_L12.pbix` (3 pages + drill-through page) |
-| Prerequisite | DAX from [Module 11 Lab 01](../../11%20-%20DAX%20Fundamentals/Lab_01_CRM_DAX_KPIs/Lab%2001%20-%20CRM%20DAX%20fundamentals%20and%20business%20KPIs.md) **or** build measures in **Part A2** below |
+| Platform | **Microsoft Fabric** + **Power BI on the web** (no Power BI Desktop required) |
+| Deliverable | Workspace `M12_L01_<id>` · Lakehouse `lh_m12_rpt` · Semantic model `sm_m12_rpt_<id>` · Report `rpt_m12_rpt_<id>` |
+| Pages | **Executive**, **Pipeline**, **Customer 360**, **Customer Detail**, **Region Tooltip** |
 
 ## Description
 
-Build three linked report experiences: **Executive Sales** (KPIs and trends), **Pipeline analytics** (funnel and conversion), and **Customer 360** (profile and drill-through). Apply design principles, slicers, conditional formatting, interactions, bookmarks, buttons, tooltips, and a basic **mobile** layout.
+Build three linked **web report** experiences: **Executive Sales** (KPIs and trends), **Pipeline analytics** (funnel and conversion), and **Customer 360** (profile and drill-through). Apply design principles, slicers, conditional formatting, **edit interactions**, bookmarks, buttons, **report tooltips**, and a basic **mobile** layout — all in the Fabric/Power BI report editor.
+
+## Standalone Fabric resources
+
+Replace `<id>` with your initials (example: `js`).
+
+| Resource | Name |
+|----------|------|
+| Workspace | `M12_L01_<id>` |
+| Lakehouse | `lh_m12_rpt` |
+| Semantic model | `sm_m12_rpt_<id>` |
+| Report | `rpt_m12_rpt_<id>` |
+
+Sign in at **https://app.fabric.microsoft.com**. If you already built [Module 11](../../11%20-%20DAX%20Fundamentals/Lab_01_CRM_DAX_KPIs/Lab%2001%20-%20CRM%20DAX%20fundamentals%20and%20business%20KPIs.md) measures in another workspace, you may still follow **this** lab in a **new** workspace so submission is self-contained — recreate measures in **Part A6** below.
 
 ## How to work through this lab
 
-1. Finish **Part A** (model + measures) before building report pages.  
-2. Create **support pages first**: `Customer Detail`, `Region Tooltip` (hidden), then **Executive → Pipeline → Customer 360**.  
-3. After each part, use the **checkpoint** list for that page.  
-4. Measure names must match Module 11 where possible so checkpoints align.
+| Part | Focus | Order note |
+|------|--------|------------|
+| **A** | Lakehouse → semantic model → **11 relationships** → measures | Complete **A3** before pages |
+| **B** | Executive + **Customer Detail** + **Region Tooltip** | Build tooltip/drill pages during B |
+| **C** | Pipeline + bookmarks + buttons | |
+| **D** | Customer 360 + segmentation | |
+| **E** | Navigation, Reset bookmark, mobile layout | |
+
+1. Finish **Part A** checkpoint (**Total Revenue = 909500**) before **Part B**.  
+2. Create pages in the **report** item; edit **relationships and DAX** in the **semantic model** item.  
+3. Measure names match Module 11 where listed so instructors can use one rubric.
 
 ## Progress checklist
 
-- [ ] Part A1 — ten tables imported, eleven relationships  
-- [ ] Part A2 — minimum measures; **Total Revenue** = **909500**  
+- [ ] Part A — ten Delta tables, **eleven** relationships, date table marked  
+- [ ] Part A — measures + **Total Revenue = 909500**  
 - [ ] Part B — Executive + drill-through + tooltip + interactions  
 - [ ] Part C — Pipeline + bookmarks + buttons + target visual  
-- [ ] Part D — Customer 360 + segmentation + trends  
-- [ ] Part E — nav buttons, Reset bookmark, mobile layout  
+- [ ] Part D — Customer 360 + trends + activities  
+- [ ] Part E — nav buttons, **Reset All**, mobile layout  
 - [ ] Design checklist completed for submission  
 
 ---
 
-## Part A — Model and measures (25 min)
+## Part A — Model and measures (35–40 min)
 
-### Part A1 — Import and relationships (15 min)
-
-#### Step A1 — Save file
-
-**File → Save As** → **`CRM_Reporting_L12.pbix`**.
-
-#### Step A2 — Import ten CSVs
-
-From **`Lab_01_CRM_Reporting_Dashboards/data/`**:
-
-`DimRegion`, `DimCustomer`, `DimProduct`, `DimSalesperson`, `DimDate`, `FactSales`, `FactOpportunity`, `FactLead`, `FactTarget`, `FactActivity`
-
-Set types (keys whole number, revenue/decimals fixed decimal, `FullDate` date). **Close & Apply**.
-
-#### Step A3 — Relationships (eleven total)
-
-Same nine as Module 11 Lab Part A, **plus**:
-
-| From (1) | To (*) | Column |
-|----------|--------|--------|
-| DimCustomer | FactActivity | CustomerKey |
-| DimDate | FactActivity | ActivityDateKey |
-
-Mark **`DimDate`** as date table on **`FullDate`**. Hide surrogate keys.
-
-**Checkpoint:** `FactSales` **36** rows; `FactActivity` loads without errors.
+**Goal:** Ten tables in the lakehouse, semantic model, **exactly eleven** star relationships (no ambiguity), minimum DAX, one validation report page before dashboard work.
 
 ---
 
-### Part A2 — Minimum measures (10 min)
+### Step A1 — Workspace and lakehouse
 
-If you completed **Module 11**, copy measures into this file (or **reuse** that `.pbix` and add `FactActivity` + relationships above).
+1. **https://app.fabric.microsoft.com** → workspace **`M12_L01_<id>`** (create if needed; Fabric capacity required).  
+2. **+ New item** → **Lakehouse** → **`lh_m12_rpt`** → **Create**.
 
-If starting fresh, create **`_Measures`** table and add these measures **in order** (names must match):
+---
+
+### Step A2 — Upload CSVs and load Delta tables
+
+#### A2.1 — Upload
+
+1. In **`lh_m12_rpt`**, under **Files**, create folder **`crm`**.  
+2. Upload **ten** CSVs from **`Lab_01_CRM_Reporting_Dashboards/data/`**:  
+   `DimRegion`, `DimCustomer`, `DimProduct`, `DimSalesperson`, `DimDate`, `FactSales`, `FactOpportunity`, `FactLead`, `FactTarget`, `FactActivity`.
+
+#### A2.2 — Load to Tables (nine passes + FactActivity)
+
+For each file, **Load to Tables** / **New table from file** → table name = base name (example: `FactActivity`).
+
+**Notebook fallback:**
+
+```python
+tables = [
+    "DimRegion", "DimCustomer", "DimProduct", "DimSalesperson", "DimDate",
+    "FactSales", "FactOpportunity", "FactLead", "FactTarget", "FactActivity",
+]
+for name in tables:
+    path = f"Files/crm/{name}.csv"
+    df = (spark.read.option("header", "true")
+          .option("inferSchema", "true")
+          .csv(path))
+    df.write.format("delta").mode("overwrite").saveAsTable(name)
+    print(name, df.count())
+```
+
+#### A2.3 — Row count checkpoint
+
+```sql
+SELECT 'FactSales' AS T, COUNT(*) AS Cnt FROM FactSales
+UNION ALL SELECT 'FactActivity', COUNT(*) FROM FactActivity
+UNION ALL SELECT 'FactOpportunity', COUNT(*) FROM FactOpportunity;
+```
+
+| Table | Expected rows |
+|-------|----------------|
+| FactSales | **36** |
+| FactActivity | **20** |
+| FactOpportunity | **16** |
+
+#### A2.4 — Semantic model
+
+1. Workspace **`M12_L01_<id>`** → **+ New item** → **Semantic model** → **`sm_m12_rpt_<id>`**.  
+2. Connect to **`lh_m12_rpt`** and include **all ten** tables.  
+3. Save.
+
+---
+
+### Step A3 — Relationships (eleven links, no ambiguity) (critical)
+
+Same rules as [Module 11 Lab A3](../../11%20-%20DAX%20Fundamentals/Lab_01_CRM_DAX_KPIs/Lab%2001%20-%20CRM%20DAX%20fundamentals%20and%20business%20KPIs.md) — **plus two** links for activities. **Do not** add shortcuts that cause **inflated revenue**.
+
+#### A3.0 — Model view cleanup
+
+1. Open **`sm_m12_rpt_<id>`** → **Model view**.  
+2. **Manage relationships** → delete **all** auto-detected links. Rebuild **only** the eleven below.
+
+#### A3.1 — Allowed relationships (create in this order)
+
+| # | One (`1`) | Many (`*`) | Column | Cross-filter |
+|---|-----------|------------|--------|--------------|
+| 1 | `DimRegion` | `DimCustomer` | `RegionKey` | Single |
+| 2 | `DimCustomer` | `FactSales` | `CustomerKey` | Single |
+| 3 | `DimProduct` | `FactSales` | `ProductKey` | Single |
+| 4 | `DimSalesperson` | `FactSales` | `SalespersonKey` | Single |
+| 5 | `DimDate` | `FactSales` | `DateKey` | Single |
+| 6 | `DimCustomer` | `FactOpportunity` | `CustomerKey` | Single |
+| 7 | `DimDate` | `FactOpportunity` | `DateKey` | Single |
+| 8 | `DimDate` | `FactLead` | `CreatedDateKey` | Single |
+| 9 | `DimDate` | `FactTarget` | `DateKey` | Single |
+| 10 | `DimCustomer` | `FactActivity` | `CustomerKey` | Single |
+| 11 | `DimDate` | `FactActivity` | `ActivityDateKey` | Single |
+
+Every link: **active**, **single** cross-filter, **one-to-many** (parent = dimension, child = fact).
+
+**Revenue by region** still flows: `DimRegion` → `DimCustomer` → `FactSales` only.
+
+#### A3.2 — Forbidden relationships (do not create)
+
+| Forbidden | Why |
+|-----------|-----|
+| `DimRegion` → `FactSales` | Ambiguous with Region→Customer→Sales |
+| `DimRegion` → `DimSalesperson` | Two paths to `FactSales` |
+| `DimRegion` → `FactOpportunity` / `FactActivity` | Use customer bridge |
+| Any fact ↔ fact | Star schema rule |
+| `FactActivity` → `FactSales` on `CustomerKey` only | Use `DimCustomer` as conformed dimension |
+
+#### A3.3 — Checkpoint
+
+1. **Manage relationships** count = **11**.  
+2. Open **`rpt_m12_rpt_<id>`** (create from semantic model if needed).  
+3. **Matrix**: Rows `DimRegion[RegionName]`, Values `Total Revenue` (temporary measure `SUM(FactSales[Revenue])` if measures not built yet).  
+4. Grand total = **909500**. If higher → fix A3.2.
+
+---
+
+### Step A4 — Mark date table and hide keys
+
+1. Semantic model → **`DimDate`** → **Mark as date table** → **`FullDate`**.  
+2. **Hide in report view** surrogate keys on facts (`CustomerKey`, `DateKey`, `ActivityDateKey`, etc.).
+
+---
+
+### Step A5 — Create and save the report
+
+1. From **`sm_m12_rpt_<id>`** → **Create report**.  
+2. Save as **`rpt_m12_rpt_<id>`** in workspace **`M12_L01_<id>`**.
+
+---
+
+### Step A6 — Minimum measures (semantic model)
+
+Create in the **semantic model** (or report **Data** pane → **New measure**). Names must match:
 
 ```dax
 Total Revenue = SUM ( FactSales[Revenue] )
@@ -134,97 +247,157 @@ CALCULATE ( COUNTROWS ( FactLead ), FactLead[IsConverted] = 1 )
 Lead Conversion Rate = DIVIDE ( [Converted Leads], [Lead Count] )
 ```
 
-**Part A checkpoint:** Card **`Total Revenue`** (no slicers) = **909500**. Save the `.pbix`.
+```dax
+Customer Revenue = CALCULATE ( [Total Revenue] )
+```
+
+```dax
+Activity Count = COUNTROWS ( FactActivity )
+```
+
+**Part A checkpoint:** **Card** → **`Total Revenue`** = **909500** (no slicers). **Save** semantic model and report.
 
 ---
 
-## Part B — Page 1: Executive Sales Dashboard (Hands-on 13) (40 min)
+## Part B — Page 1: Executive Sales (Hands-on 13) (40 min)
+
+**Goal:** KPI dashboard with slicer-driven year context, region/customer breakdown, drill-through, tooltip page, and controlled cross-filtering.
 
 **Page name:** **`Executive`**
 
-### Step B1 — Rename page and set canvas
+### Step B0 — Add all report pages (recommended order)
 
-1. Right-click report page tab → **Rename** → **`Executive`**.  
-2. Optional: **View → Page view → Fit to page**.
+In **`rpt_m12_rpt_<id>`**, create blank pages and rename:
 
-### Step B2 — Slicer first (drives context)
+1. `Executive` (build first)  
+2. `Customer Detail`  
+3. `Region Tooltip`  
+4. `Pipeline` (placeholder — Part C)  
+5. `Customer 360` (placeholder — Part D)  
 
-1. Insert **Slicer** → field **`DimDate[Year]`**.  
-2. In slicer, select **2026** (single-year dashboard default).
+Hiding tooltip/drill pages comes in B7–B8.
+
+---
+
+### Step B1 — Rename and canvas
+
+1. Open page **`Executive`**.  
+2. **View** → **Page view** → **Fit to page** (optional).
+
+---
+
+### Step B2 — Year slicer (filter context for the page)
+
+1. **Insert** → **Slicer** → field **`DimDate[Year]`**.  
+2. Select **2026** so KPIs match the executive year story.  
+3. **Format** slicer → title **Year**.
+
+**Teaching point:** Without this slicer, **Total Revenue** shows **909500** (all years); with **2026**, executive revenue is **533500**.
+
+---
 
 ### Step B3 — KPI row (four cards)
 
-Insert **Card** for each (same row):
+**Insert** → **Card** (four times, one row):
 
-| Card | Field |
-|------|--------|
-| 1 | `Total Revenue` (shows 2026 when Year slicer = 2026 → **533500**) |
-| 2 | `Pipeline Value` |
-| 3 | `Win Rate` |
-| 4 | `Target Achievement %` |
+| Card title (suggested) | Measure |
+|------------------------|---------|
+| Total Revenue | `Total Revenue` |
+| Open Pipeline | `Pipeline Value` |
+| Win Rate | `Win Rate` |
+| Target vs YTD | `Target Achievement %` |
 
-Format titles clearly (e.g. “Total Revenue (2026)”).
+With **Year = 2026**, revenue card ≈ **533500**.
+
+---
 
 ### Step B4 — Trend and region
 
-1. **Line chart:** X-axis **`DimDate[FullDate]`** (or **Calendar** hierarchy at month level), Y-axis **`Total Revenue`**.  
-2. **Clustered bar chart:** Axis **`DimRegion[RegionName]`**, Values **`Total Revenue`**.  
-   - Revenue filters through **DimCustomer** (do not add `DimRegion` directly to `FactSales`).
+1. **Line chart:** X-axis **`DimDate[FullDate]`** (drag **Year**, **Month** hierarchy if available), Y-axis **`Total Revenue`**.  
+2. **Clustered bar chart:** Y-axis **`DimRegion[RegionName]`**, X-axis **`Total Revenue`**.  
+   - Use **`DimRegion`** only — **do not** put `RegionKey` from facts on the axis.
+
+---
 
 ### Step B5 — Customer matrix + conditional formatting
 
 1. **Matrix:** Rows **`DimCustomer[CustomerName]`**, Values **`Total Revenue`**, **`Sale Count`**.  
-2. Select matrix → **Format → Cells → Conditional formatting → Data bars** on **`Total Revenue`**.
-
-### Step B6 — Design layout
-
-- Titles left-aligned; one accent color.  
-- Slicers in a **left column**; KPIs in **one row** at top; primary trend chart “above the fold”.
-
-### Step B7 — Customer Detail page (drill-through)
-
-1. **Insert → New page** → rename **`Customer Detail`**.  
-2. **Format page → Page information → Allow use as drillthrough** → **On**.  
-3. **Drillthrough filter:** **`DimCustomer[CustomerName]`** (add field to drillthrough well on this page).  
-4. On **`Customer Detail`**, add:  
-   - Cards: customer name, region (use `DimCustomer` + `DimRegion[RegionName]`),  
-   - Bar chart: **`Total Revenue` by `DimProduct[ProductName]`**,  
-   - Table: `FactSales` columns for the customer.  
-5. On **`Executive`** matrix, right-click a customer → **Drill through → Customer Detail** to test.
-
-### Step B8 — Region tooltip page
-
-1. New page → rename **`Region Tooltip`**.  
-2. **Format page → Page information → Tooltip** → **On**. Resize canvas small (e.g. 320×240).  
-3. **Matrix:** Rows **`DimRegion[RegionName]`**, **`DimCustomer[CustomerName]`**, Values **`Total Revenue`**.  
-   - Optional: Top N filter on customers per region for “top 3” story.  
-4. On **`Executive`** region **bar chart** → **Format → General → Tooltip → Type: Report page** → **`Region Tooltip`**.
-
-### Step B9 — Edit interactions
-
-1. On **`Executive`**, select a **KPI card**.  
-2. **Format → Edit interactions** (or **Format → Edit interactions** on ribbon).  
-3. Click each other visual and set **card does not filter** charts (slicer still filters).  
-4. End edit mode.
-
-### Part B checkpoint
-
-- [ ] Year **2026** → Total Revenue **533500**  
-- [ ] Drill-through to **Customer Detail** works  
-- [ ] Region bar shows **tooltip page** on hover  
-- [ ] KPI cards do not filter bar/line when interaction set  
+2. Select matrix → **Format visual** → **Cell elements** → **Conditional formatting** → **Data bars** on **`Total Revenue`**.
 
 ---
 
-## Part C — Page 2: Pipeline Dashboard (Hands-on 14) (35 min)
+### Step B6 — Layout
+
+- Left column: **Year** slicer.  
+- Top row: four **cards**.  
+- Center: **line** then **region bar**.  
+- Right or below: **customer matrix**.  
+- One consistent accent color; left-aligned visual titles.
+
+---
+
+### Step B7 — Customer Detail (drill-through target)
+
+On page **`Customer Detail`**:
+
+1. **Format page** (paint roller on empty canvas) → **Page information**:  
+   - **Allow use as drill through**: **On**.  
+2. In the **Drill through** field well (bottom of **Visualizations**), add **`DimCustomer[CustomerName]`**.  
+3. Add visuals:  
+   - **Card**: `DimCustomer[CustomerName]`, `DimRegion[RegionName]` (from related region path).  
+   - **Clustered bar**: `DimProduct[ProductName]`, `Total Revenue`.  
+   - **Table**: `FactSales` columns (respect drill filter).  
+4. Optional: **Page information** → **Page hidden** → **On** (page still works for drill-through).
+
+**Test:** On **`Executive`** matrix, right-click a customer → **Drill through** → **Customer Detail**.
+
+---
+
+### Step B8 — Region Tooltip page
+
+On page **`Region Tooltip`**:
+
+1. **Format page** → **Page information** → **Tooltip**: **On**.  
+2. Resize page ( **Canvas settings** ) to a small tooltip size (example: 320×240).  
+3. **Matrix**: Rows **`DimRegion[RegionName]`**, **`DimCustomer[CustomerName]`**, Values **`Total Revenue`**.  
+4. **Page hidden**: **On** (recommended).
+
+On **`Executive`** **region bar chart**:
+
+1. Select the visual → **Format** → **General** → **Tooltips**.  
+2. **Type**: **Report page** → page **`Region Tooltip`**.
+
+**Test:** Hover a bar — tooltip page appears.
+
+---
+
+### Step B9 — Edit interactions (KPI cards do not filter charts)
+
+1. On **`Executive`**, click a **KPI card** to select it.  
+2. **Format** → **Edit interactions** (icon appears on other visuals).  
+3. On **line**, **bar**, and **matrix**, set filter icon to **None** (no filter) for the card.  
+4. **Slicer** should still filter all visuals — leave slicer → visual as filter.  
+5. Click **Edit interactions** again to exit.
+
+### Part B checkpoint
+
+- [ ] Year **2026** → revenue **533500** on card  
+- [ ] Region bar total ties to matrix logic; no inflated totals  
+- [ ] Drill-through to **Customer Detail** works  
+- [ ] Region bar uses **Report page** tooltip  
+- [ ] KPI cards do not cross-filter charts  
+
+---
+
+## Part C — Page 2: Pipeline (Hands-on 14) (35 min)
 
 **Page name:** **`Pipeline`**
 
-### Step C1 — Funnel and stage visuals
+### Step C1 — Stage visuals
 
-1. **Clustered bar chart (horizontal):** Axis **`FactOpportunity[Stage]`**, Values **`Opportunity Count`**, **`Pipeline Value`**.  
-2. **Donut chart:** Legend **`FactOpportunity[Stage]`**, Values **`Opportunity Count`** (Won / Lost / Open).  
-3. **Card:** **`Lead Conversion Rate`**.
+1. **Clustered bar chart** (horizontal): Axis **`FactOpportunity[Stage]`**, Values **`Opportunity Count`**, **`Pipeline Value`**.  
+2. **Donut chart**: Legend **`FactOpportunity[Stage]`**, Values **`Opportunity Count`**.  
+3. **Card**: **`Lead Conversion Rate`**.
 
 ### Step C2 — Salesperson matrix
 
@@ -232,35 +405,36 @@ Format titles clearly (e.g. “Total Revenue (2026)”).
 
 ### Step C3 — Opportunities over time
 
-**Line chart:** Axis **`DimDate[FullDate]`** at **month** level (relationship **`DimDate` → `FactOpportunity`** on **DateKey**), Values **`Opportunity Count`**. This shows how opportunities distribute across months in the sample data.
+**Line chart:** Axis **`DimDate[FullDate]`** (month), Values **`Opportunity Count`** (filters via **`DimDate` → `FactOpportunity`**).
 
 ### Step C4 — Narrative
 
-**Insert → Text box** — short lead → opportunity story; reference **`Lead Conversion Rate`**.
+**Insert** → **Text box** — one short paragraph: leads convert to opportunities; reference **`Lead Conversion Rate`**.
 
-### Step C5 — Bookmarks (record filter state)
+### Step C5 — Bookmarks (web)
 
-1. Set visuals to **All stages** visible (clear any stage slicer filters).  
-2. **View → Bookmarks pane → Add** → name **`All Stages`**.  
-3. Add slicer or filter **`FactOpportunity[Stage]`** = **Open** → **Add bookmark** → **`Open Pipeline Only`**.  
-4. Filter **Won** → **Add bookmark** → **`Won Deals`**.  
-5. For each bookmark: **⋯ → Update** after changing filters; uncheck **Data** if you only want visual state per instructor preference (default: include **Data**).
+1. **View** → **Bookmarks pane** (enable if hidden).  
+2. Clear stage filters → **Add bookmark** → name **`All Stages`** → check **Data** → save.  
+3. Filter opportunities to **Open** (slicer on **`Stage`** or visual filter) → **Add bookmark** → **`Open Pipeline Only`**.  
+4. Filter **Won** → **`Won Deals`**.  
+5. After changing filters, use **⋯ → Update** on each bookmark.
 
 ### Step C6 — Bookmark buttons
 
-1. **Insert → Buttons → Navigator → Bookmark** (or Button → Bookmark).  
-2. Assign **`All Stages`** and **`Open Pipeline Only`** to two buttons on the canvas.
+1. **Insert** → **Button** → style **Blank** or **Bookmark navigator**.  
+2. **Format button** → **Action** → **Type: Bookmark** → select **`All Stages`** / **`Open Pipeline Only`**.  
+3. Label buttons clearly on canvas.
 
 ### Step C7 — Actual vs target
 
-**Gauge** (or two cards): **`Revenue YTD`** vs **`Revenue Target`**; or use **`Target Achievement %`** card.
+**Gauge** visual (if available in tenant) or two **cards**: **`Revenue YTD`** and **`Revenue Target`**, or single **`Target Achievement %`** card.
 
 ### Part C checkpoint
 
 - [ ] Donut shows Won / Lost / Open  
-- [ ] Bookmarks switch stage filters  
-- [ ] Buttons trigger bookmarks  
-- [ ] Target visual shows YTD vs target  
+- [ ] Bookmarks change stage context  
+- [ ] Buttons fire bookmarks  
+- [ ] Target / YTD visual present  
 
 ---
 
@@ -270,71 +444,61 @@ Format titles clearly (e.g. “Total Revenue (2026)”).
 
 ### Step D1 — Customer slicer and profile
 
-1. **Slicer:** **`DimCustomer[CustomerName]`** (single select).  
-2. **Multi-row card:** **`CustomerName`**, **`DimRegion[RegionName]`**, **`Industry`** (from `DimCustomer` / related region).
+1. **Slicer:** **`DimCustomer[CustomerName]`** — **single select** (format → selection → single select).  
+2. **Multi-row card**: **`CustomerName`**, **`DimRegion[RegionName]`**, **`Industry`**.
 
-### Step D2 — Customer KPI measures
+### Step D2 — KPI cards for selected customer
 
-Create if missing:
+Four **cards**: **`Customer Revenue`**, **`Sale Count`**, **`Opportunity Count`**, **`Activity Count`** — all respect the slicer.
 
-```dax
-Customer Revenue =
-CALCULATE ( [Total Revenue] )
-```
+### Step D3 — Products and detail tables
 
-```dax
-Activity Count =
-COUNTROWS ( FactActivity )
-```
+1. **Clustered bar**: **`DimProduct[ProductName]`**, **`Customer Revenue`**.  
+2. **Table**: `FactOpportunity` — **Stage**, **EstimatedValue**.  
+3. **Table**: `FactActivity` — **ActivityType**, **`DimDate[FullDate]`** (or `ActivityDateKey` formatted).
 
-**Cards (filtered by slicer):** `Customer Revenue`, `Sale Count`, `Opportunity Count`, `Activity Count`.
+### Step D4 — Segmentation
 
-### Step D3 — Product and detail tables
+**Clustered bar** of **`DimCustomer[CustomerName]`** vs **`Customer Revenue`**; **conditional formatting** → highlight **top 3** customers by revenue.
 
-1. **Bar chart:** **`DimProduct[ProductName]`**, **`Customer Revenue`**.  
-2. **Table:** `FactOpportunity` — **Stage**, **EstimatedValue**, customer keys filtered by slicer.  
-3. **Table:** `FactActivity` — **ActivityType**, date column.
+### Step D5 — Drill-through link
 
-### Step D4 — Segmentation bar
+From opportunity **table**, confirm **Drill through → Customer Detail** or duplicate detail section lower on the same page.
 
-**Clustered bar:** All customers by **`Customer Revenue`**; **conditional formatting** → highlight **top 3** (rules or Top N filter).
+### Step D6 — Customer trend
 
-### Step D5 — Drill-through
-
-From opportunity table, ensure **drill through** to **`Customer Detail`** works, or duplicate detail visuals below the fold on this page.
-
-### Step D6 — Customer trend line
-
-**Line chart:** **`DimDate[FullDate]`** (month), **`Customer Revenue`**, controlled by customer slicer.
+**Line chart**: Month from **`DimDate[FullDate]`**, Values **`Customer Revenue`**.
 
 ### Part D checkpoint
 
-- [ ] Changing slicer updates all customer visuals  
-- [ ] Activity table shows rows for selected customer  
-- [ ] Monthly trend reflects one customer  
+- [ ] Slicer changes all customer-scoped visuals  
+- [ ] **Activity Count** > 0 for customers with activities  
+- [ ] Trend line shows one customer’s months  
 
 ---
 
-## Part E — Navigation, mobile, publish (15 min)
+## Part E — Navigation, mobile, share (15 min)
 
-### Step E1 — Page navigation buttons
+### Step E1 — Page navigation
 
-On **`Executive`**: **Insert → Buttons → Navigator → Page navigator** or two **Page navigation** buttons → targets **`Pipeline`**, **`Customer 360`**.
+On **`Executive`**: **Insert** → **Button** → **Action: Page navigation** → target **`Pipeline`** and **`Customer 360`** (two buttons or **Page navigator**).
 
-### Step E2 — Reset bookmark
+### Step E2 — Reset All bookmark
 
-1. Clear all slicers (Year, Customer, Stage).  
-2. **Add bookmark** → **`Reset All`** — include **Data** and **Current page** only if you want reset to stay on current page.
+1. Clear slicers (Year, Customer, Stage).  
+2. **Add bookmark** → **`Reset All`** with **Data** selected.  
+3. Optional button with **Action: Bookmark** → **`Reset All`**.
 
-### Step E3 — Mobile layout
+### Step E3 — Phone layout (web)
 
-1. **`Executive`** page → **View → Mobile layout**.  
-2. Stack **KPI cards vertically**; place **Year slicer** at top.  
-3. Note in submission what you moved.
+1. Open page **`Executive`**.  
+2. **View** → **Mobile layout** (or **Phone layout**).  
+3. Drag **Year** slicer and **four cards** into the phone canvas — **stack cards vertically**.  
+4. Add key chart if space allows. **Save**.
 
-### Step E4 — Optional publish
+### Step E4 — Share evidence
 
-**Publish** to workspace `M12_L01_<id>` if tenant allows.
+Report is already in workspace **`M12_L01_<id>`**. Copy **Share link** or submit workspace name for instructor access — no `.pbix` required.
 
 ### Visual selection cheat sheet (submission)
 
@@ -346,7 +510,7 @@ On **`Executive`**: **Insert → Buttons → Navigator → Page navigator** or t
 | Stage breakdown | Bar / Donut |
 | Detail listing | Table / Matrix |
 
-### Design checklist (complete for submission)
+### Design checklist (submission)
 
 | Feature | Where implemented |
 |---------|-------------------|
@@ -356,16 +520,17 @@ On **`Executive`**: **Insert → Buttons → Navigator → Page navigator** or t
 | Bookmarks + buttons | Pipeline |
 | Report tooltip | Region bar on Executive |
 | Edit interactions | Executive KPI vs charts |
-| Mobile layout | Executive |
+| Mobile / phone layout | Executive |
 
 ---
 
 ## Submission
 
-- `.pbix` with pages: **Executive**, **Pipeline**, **Customer 360**, **Customer Detail** (+ **Region Tooltip**)  
-- Screenshot of bookmarks/buttons  
-- Mobile layout screenshot (Executive)  
-- Completed **design checklist** table  
+- Workspace **`M12_L01_<id>`** and item names (lakehouse, semantic model, report)  
+- Screenshot: **Model view** with **11** relationships  
+- Report URL or screenshots: **Executive**, **Pipeline**, **Customer 360**, drill-through, tooltip hover, bookmarks, **phone layout**  
+- Completed **design checklist**  
+- One sentence: how **Year** slicer changed **Total Revenue** (909500 vs 533500)  
 
 ---
 
@@ -373,13 +538,16 @@ On **`Executive`**: **Insert → Buttons → Navigator → Page navigator** or t
 
 | Symptom | What to do |
 |---------|------------|
-| Revenue 533500 on Executive with no slicer | Expected only when filtered to 2026 — check **Year** slicer or add one |
-| Region bar empty | Use **`DimRegion[RegionName]`** with relationship through **DimCustomer** |
-| Drill-through disabled | Target page **Allow use as drillthrough**; field in drillthrough well |
-| Tooltip page not showing | Tooltip page **On**; assign on **region chart** tooltip type **Report page** |
-| Bookmark does not change filters | Re-record bookmark with **Data** included; **Update** after filter change |
-| YTD / Target broken | Mark **`DimDate`**; measures from **Part A2** |
-| Activity Count zero | Relationships **DimCustomer → FactActivity**, **DimDate → FactActivity** |
+| Revenue **> 909500** | Remove forbidden relationships (Part A3.2); keep **11** links only |
+| Region bar empty | Axis = **`DimRegion[RegionName]`**; path via **DimCustomer** |
+| Executive revenue 909500 but should be 2026 view | Set **Year** slicer to **2026** → **533500** |
+| Drill-through greyed out | **Customer Detail**: drill through **On**; field in drill-through well |
+| Tooltip does not show | **Region Tooltip** page type **Tooltip**; bar chart tooltip **Report page** |
+| Bookmarks no effect | **Update** bookmark after filter change; include **Data** |
+| **Activity Count** always 0 | Relationships #10–#11; **`FactActivity`** 20 rows in lakehouse |
+| YTD / Target blank | Mark **`DimDate`**; relationships #5 and #9 |
+| Mobile layout missing | Use **View → Mobile layout** on **`Executive`**; save report |
+| Cannot add measure in report | Open **`sm_m12_rpt_<id>`** and create measures there, refresh report |
 
 ---
 

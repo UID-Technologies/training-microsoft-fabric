@@ -45,7 +45,8 @@ Labs/NN - Module title/
 
 - Use **only** the `data/` folder named in that lab unless the guide says otherwise.  
 - Each Fabric lab uses its **own workspace** name with your initials.  
-- Each Power BI lab starts from a **new blank .pbix** unless the guide says otherwise.  
+- **Modules 2 and 10:** new blank **`.pbix`** in Power BI Desktop unless the guide says otherwise.  
+- **Modules 11–12:** Fabric workspace + **semantic model** + **report** in the browser (see each module Getting-Started).  
 - Compare your results to **Expected** / **Validation** sections before you submit.  
 - Complete **Cleanup** at the end of Fabric labs when instructed.
 
